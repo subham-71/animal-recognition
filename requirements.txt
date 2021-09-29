@@ -2,5 +2,5 @@ flask==1.1.2
 numpy==1.19.2
 pandas==1.2.4
 scipy==1.6.2
-sklearn==0.24.2
+sklearn==0.23.2
 skimage==0.17.2
