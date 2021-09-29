@@ -1,0 +1,98 @@
+{% extends 'index.html' %}
+
+{% block body %}
+
+<div class='container' id="my-row">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <br>
+            <a class="nav-link active" aria-current="page" id="uploading" href="#upload-image">Upload Image</a>
+        </li>
+
+    </ul>
+    <div class="tab-content">
+        <div class="panel-active" id="upload-image" role="tabpanel" aria-labelledby="uploading">
+            <div class="row">
+                <div class="col">
+                    <form action="#" method="POST" enctype="multipart/form-data">
+
+                        <p>
+                            <center>
+                            <input type="file" name="image_name" class="btn"
+                                style="background-color:rgb(255, 250, 250) ;color:rgb(0, 0, 10)" required>
+                        </p>
+
+                        <p>
+                            <input type="submit" value="submit" class="btn"
+                                style="background-color:rgb(46, 228, 22) ;color:rgb(0, 0, 10)">
+
+                        </p>
+
+                        <p style="background-color: rgb(255, 231, 196); color: black ; padding:5px">
+                            Please upload only file jpeg,png or jpg files
+                        </p>
+
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<br>
+<br>
+{% if fileupload %}
+<div class="container" id="table-res">
+    <h3><center>Results</center></h3>
+    <div class="row">
+        <div class="col col-8">
+            <table>
+                <tr>
+                    <th style="text-align:center">Label</th>
+                    <th style="text-align:center">Confidence</th>
+                </tr>
+
+                {% for name,score in data.items() %}
+                <tr>
+                    <td style="text-align:center">{{name}}</td>
+                    <td style="text-align:center">{{score}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="col col-4">
+            <img src="static/upload/{{image}}" alt="uploaded image" width="200" height={{height}}>
+        </div>
+    </div>
+</div>
+{% endif %}
+<style>
+    #my-row {
+        background-color: rgb(43, 66, 196);
+        padding: 3%;
+    }
+
+    .nav nav-tabs {
+        padding: 0.5%;
+    }
+
+    #table-res{
+       background-color:rgb(26, 188, 252) ;
+       padding:2%;
+       align-content: center;
+
+    }
+    table{
+        background:rgb(0, 0, 0);
+        color: white;
+        width:100%;
+        border-collapse:collapse;
+    }
+    table,th,td{
+        border: 1px solid rgb(255, 255, 255);
+    }
+</style>
+
+{% endblock %}
