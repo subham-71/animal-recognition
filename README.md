@@ -1,6 +1,6 @@
 # Animal Face Recognition Web App
 
-App deployed at  http://testing496.pythonanywhere.com/#
+App deployed at  https://ani-recog-app.herokuapp.com/
 
 You can upload here image of any animal's head and the program will show you which animal it is.
 
